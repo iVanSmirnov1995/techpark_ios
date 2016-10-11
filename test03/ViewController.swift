@@ -85,19 +85,23 @@ class ViewController: UIViewController {
         }
         
         
-        self.pointButton.isUserInteractionEnabled=true
-        
-        if (countCharInString(char: ".", string: currentText))>0{
-            
-            self.pointButton.isUserInteractionEnabled=false
-        }
- 
         
         if userStartedTyping {
             display.text = currentText + number
         } else {
             display.text = number
         }
+        
+        self.pointButton.isUserInteractionEnabled=true
+        
+        
+        if (countCharInString(char: ".", string: display.text!))>0{
+            
+            self.pointButton.isUserInteractionEnabled=false
+        }
+        
+        
+        
         
         calculator.setNumber(number: displayedNumber)
         userStartedTyping = true
